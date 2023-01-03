@@ -32,3 +32,7 @@ python manage.py runserver
 # create the polls app (in the same directory of manage.py)
 python manage.py startapp polls
 ```
+
+## Start app
+
+Web path: http://localhost:8000/polls/
