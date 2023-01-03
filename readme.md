@@ -1,5 +1,7 @@
 # Django project - start
 
+- [Tutorial](https://docs.djangoproject.com/en/3.2/intro/tutorial01/)
+
 ## Environment setup
 
 ```sh
@@ -16,4 +18,15 @@ python3 -m django --version
 pip freeze > requirements.txt
 
 pip install -r requirements.txt
+```
+
+## Start a Django project
+
+```sh
+django-admin startproject mysite
+
+# test the django project
+cd mysite
+python manage.py runserver
+
 ```
