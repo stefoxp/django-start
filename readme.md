@@ -29,4 +29,6 @@ django-admin startproject mysite
 cd mysite
 python manage.py runserver
 
+# create the polls app (in the same directory of manage.py)
+python manage.py startapp polls
 ```
