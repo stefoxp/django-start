@@ -203,3 +203,7 @@ python manage.py runserver
 open the browser and go to "/admin/":
 
 http://localhost:8000/admin/
+
+### Make the polls app modifiable in the admin
+
+We need to tell the admin that Question objects have an admin interface on the polls/admin.py
