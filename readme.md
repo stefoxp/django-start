@@ -184,3 +184,22 @@ Choice.objects.filter(question__pub_date__year=current_year)
 c = q.choice_set.filter(choice_text__startswith='Just hacking')
 c.delete()
 ```
+
+## The Django Admin
+
+### Creating an admin user
+
+```sh
+python manage.py createsuperuser
+
+Username: stefano
+Email address: ...
+Password: ************
+Password (again): ***********
+
+python manage.py runserver
+```
+
+open the browser and go to "/admin/":
+
+http://localhost:8000/admin/
