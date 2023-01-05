@@ -248,3 +248,7 @@ First, create a directory called **templates** in your polls directory.
 Within the templates directory, create another directory called **polls**, and within that create a file called **index.html**.
 
 Let's update our index view in polls/views.py to use the template.
+
+#### A shortcut: render()
+
+Django provides a shortcut to load a template, fill a context and return an HttpResponse object with the result of the rendered template.
