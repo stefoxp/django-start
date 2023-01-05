@@ -238,3 +238,13 @@ Try /polls/34/results/ and /polls/34/vote/ too
 Each view is responsible for doing one of two things: returning an HttpResponse object containing the content for the requested page, or raising an exception such as Http404. The rest is up to you.
 
 Here's one stab at a new index() view, which displays the latest 5 poll questions in the system, separated by comma, according to publication date.
+
+#### Template
+
+Let's use Django's template system to separate the design from Python by creating a template that the view can use.
+
+First, create a directory called **templates** in your polls directory.
+
+Within the templates directory, create another directory called **polls**, and within that create a file called **index.html**.
+
+Let's update our index view in polls/views.py to use the template.
