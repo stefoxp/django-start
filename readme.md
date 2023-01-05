@@ -262,3 +262,7 @@ The view raises the Http404 exception if a question with the requested ID doesn'
 ### A shortcut: get_object_or_404()
 
 There's also a get_list_or_404() function.
+
+### Use the template system
+
+Back to detail() view and her template.
