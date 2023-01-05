@@ -258,3 +258,7 @@ Django provides a shortcut to load a template, fill a context and return an Http
 Let's tackle the question detail view.
 
 The view raises the Http404 exception if a question with the requested ID doesn't exist.
+
+### A shortcut: get_object_or_404()
+
+There's also a get_list_or_404() function.
