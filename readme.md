@@ -207,3 +207,29 @@ http://localhost:8000/admin/
 ### Make the polls app modifiable in the admin
 
 We need to tell the admin that Question objects have an admin interface on the polls/admin.py
+
+## Views
+
+A view is a type of Web page in your Django application that generally serves a specific function and has a specific template.
+
+In our polls application, we will have the following four views:
+
+- Question index page
+- Question detail page
+- Question results page
+- Vote action
+
+Each view is represented by a Python function (or method, in the case of class-based views).
+
+Django will choose a view by examining the URL that's requested.
+To get from a URL to a view, Django uses what are known as 'URLconfs'.
+
+### Writing more views
+
+on polls/views.py
+
+Wire these new views into the polls.urls module by adding the path() calls.
+
+Take a look in your browser, at /polls/34/. It'll run the detail() method and display whatever ID you provide in the URL.
+Try /polls/34/results/ and /polls/34/vote/ too
+
