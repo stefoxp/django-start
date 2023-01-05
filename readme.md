@@ -93,3 +93,94 @@ Remember the three-step guide to making model changes:
 1. Change your models (in **models.py**).
 2. Run **python manage.py makemigrations** to create migrations for those changes
 3. Run **python manage.py migrate** to apply those changes to the database.
+
+## Playing with the API
+
+in the Python shell
+
+```sh
+python manage.py shell
+```
+
+explore the database API:
+
+```python
+from polls.models import Choice, Question
+
+Question.objects.all()
+
+# Create a new Question
+
+from django.utils import timezone
+
+q = Question(question_text="What's new?", pub_date=timezone.now())
+
+q.save()
+
+q.id
+
+# access model field values
+q.question_text
+q.pub_date
+
+# change values
+q.question_text = "What's up?"
+q.save()
+
+# display all the questions
+Question.objects.all()
+```
+
+### Adding a __str__() method to both Question and Choice models
+
+Save these changes and start a new Python interactive shell.
+
+```python
+from polls.models import Choice, Question
+
+Question.objects.all()
+
+Question.objects.filter(id=1)
+
+Question.objects.filter(question_text__startswith='What')
+
+# question published this year
+from django.utils import timezone
+
+current_year = timezone.now().year
+
+Question.objects.get(pub_date__year=current_year)
+
+# request a question that doesn't exist will raise an exception
+Question.objects.get(id=2)
+
+# use a shortcut for primary-key exact lookups
+Question.objects.get(pk=1)
+
+# use the custom method
+q = Question.objects.get(pk=1)
+q.was_published_recently()
+
+# display any choices from the related object set
+q.choice_set.all()
+
+# create three choices
+q.choice_set.create(choice_text='Not much?', votes=0)
+q.choice_set.create(choice_text='The sky', votes=0)
+c = q.choice_set.create(choice_text='Just hacking again', votes=0)
+
+# choice objects have API access to their related Question objects
+c.question
+
+# and vice versa
+q.choice_set.all()
+q.choice_set.count()
+
+# The API automatically follows relationships as far as you need
+# Use double underscores to separate relationships
+Choice.objects.filter(question__pub_date__year=current_year)
+
+# Let's delete one of the choices
+c = q.choice_set.filter(choice_text__startswith='Just hacking')
+c.delete()
+```
