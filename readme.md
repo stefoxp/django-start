@@ -233,3 +233,8 @@ Wire these new views into the polls.urls module by adding the path() calls.
 Take a look in your browser, at /polls/34/. It'll run the detail() method and display whatever ID you provide in the URL.
 Try /polls/34/results/ and /polls/34/vote/ too
 
+### Writing views that actually do something
+
+Each view is responsible for doing one of two things: returning an HttpResponse object containing the content for the requested page, or raising an exception such as Http404. The rest is up to you.
+
+Here's one stab at a new index() view, which displays the latest 5 poll questions in the system, separated by comma, according to publication date.
