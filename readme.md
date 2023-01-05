@@ -36,3 +36,24 @@ python manage.py startapp polls
 ## Start app
 
 Web path: http://localhost:8000/polls/
+
+## settings.py - Database setup
+
+migrate command looks at the INSTALLED_APPS setting and creates any necessary database tables
+
+```sh
+python manage.py migrate
+```
+
+## models for the polls app
+
+models: your database layout with additional metadata
+
+### Question and Choice
+
+A Question has a question and a publication date.
+
+A Choice has two fields: the text of the choice and a vote tally.
+
+Each Choice is associated with a Question.
+
