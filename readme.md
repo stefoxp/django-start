@@ -252,3 +252,9 @@ Let's update our index view in polls/views.py to use the template.
 #### A shortcut: render()
 
 Django provides a shortcut to load a template, fill a context and return an HttpResponse object with the result of the rendered template.
+
+## Raising a 404 error
+
+Let's tackle the question detail view.
+
+The view raises the Http404 exception if a question with the requested ID doesn't exist.
