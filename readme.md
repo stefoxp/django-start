@@ -57,3 +57,39 @@ A Choice has two fields: the text of the choice and a vote tally.
 
 Each Choice is associated with a Question.
 
+### Activating models
+
+First we need to tell our project that the polls app is installed:
+
+- add the path of app in mysite/settings.py
+- makemigrations
+
+```sh
+python manage.py makemigrations polls
+```
+
+> migrations are how Django stores changes to your models, they are files on disk
+
+There's a command that will run the migrations for you and manage your database schema automatically: **migrate**.
+
+First, let's see what SQL that migration would run. The **sqlmigrate** command takes migration names and returns their SQL:
+
+```sh
+python manage.py sqlmigrate polls 0001
+```
+
+> you can also run
+ python manage.py check
+ for to check for any problems in your project without making migrations or touching the database
+
+Now, run migrate to create those model tables in your database:
+
+```sh
+python manage.py migrate
+```
+
+Remember the three-step guide to making model changes:
+
+1. Change your models (in **models.py**).
+2. Run **python manage.py makemigrations** to create migrations for those changes
+3. Run **python manage.py migrate** to apply those changes to the database.
