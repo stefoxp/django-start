@@ -266,3 +266,20 @@ There's also a get_list_or_404() function.
 ### Use the template system
 
 Back to detail() view and her template.
+
+### Removing hardcoded URLs in templates
+
+The problem with this hardcoded, tightly-coupled approach is that it becomes challenging to change URLs on projects with a lot of templates.
+
+Since you defined the name argument in the path() functions in the polls.urls module, you can remove a reliance on specific URL paths defined in your url configurations by using the {% url %} template tag.
+
+In the polls/index.html:
+
+```html
+<a href="{% url 'detail' question.id %}">{{ question.question_text }}</a>
+```
+
+```python
+# the 'name' value as called by the {% url %} template tag
+path('<int:question_id>/', views.detail, name='detail'),
+```
