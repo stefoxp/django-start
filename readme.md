@@ -288,3 +288,15 @@ path('<int:question_id>/', views.detail, name='detail'),
 
 Django differentiate the URL names between them with namespaces.
 The namespaces should be added to your URLconf.
+
+## Part 4
+
+### Write a minimal form
+
+Insert a form in polls/detail.html
+
+Create a real version of the vote() in polls/views.py
+
+Create the results() in polls/views.py
+
+Create the template for results
