@@ -283,3 +283,8 @@ In the polls/index.html:
 # the 'name' value as called by the {% url %} template tag
 path('<int:question_id>/', views.detail, name='detail'),
 ```
+
+## Namespacing URL names
+
+Django differentiate the URL names between them with namespaces.
+The namespaces should be added to your URLconf.
